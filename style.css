@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+    
+}
+body{
+    background: hsl(207, 26%, 17%);
+    font-family: "Nunito Sans", sans-serif;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.width{
+    padding: 10px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#light{
+    background:hsl(0, 0%, 98%);
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#navbar{
+    height: 50px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+}
+#navbar_light{
+    height: 50px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: hsl(0, 0%, 96%);
+    color: hsl(0, 0%, 1%);
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+}
+
+#darkmode{
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    border: none;
+    color: hsl(0, 0%, 100%); */
+    cursor: pointer;
+}
+#darkmode:hover{
+    opacity: 80%;
+}
+#darkmode i {
+    padding: 10px;
+}
