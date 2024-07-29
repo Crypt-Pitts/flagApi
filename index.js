@@ -1,9 +1,9 @@
 const element = document.getElementById("darkmode");
 
-element.addEventListener("click", mySecondFunction);
+element.addEventListener("click", darkmodeHandler);
 const x = document.getElementById("navbar");
 
-function mySecondFunction() {
+function darkmodeHandler() {
   document.body.id === "light" ? document.getElementById("light").id = "dark" : document.getElementById("dark").id = "light";
   x.id == "navbar_light" ? document.getElementById("navbar_light").id = "navbar" : document.getElementById("navbar").id = "navbar_light";
 }
@@ -25,15 +25,24 @@ function mySecondFunction() {
 //   }
 // });
 
-const listEl = document.querySelector('ul');
+const card = document.getElementById('card')
 async function getFetch(){
     try{
         const url = `./data.json`
         const res = await fetch(url);
         const data = await res.json()
+        console.log(data)
+        data.forEach(country => {
+            card.insertAdjacentHTML("beforeend",`<img src="${country.flag}" alt="">`)
+            card.insertAdjacentHTML("beforeend",`<h2>${country.name}</h2>`) 
+            card.insertAdjacentHTML("beforeend",`<p>Population: ${country.population}</p>`)
+            card.insertAdjacentHTML("beforeend",`<p>Region: ${country.region}</p>`)
+            card.insertAdjacentHTML("beforeend",`<p>Capitol: ${country.capital}</p>`)
 
-        data.forEach(e=> listEl.insertAdjacentHTML('beforeend', `<li>${e.name}</li>`))
-        data.forEach(pic=> listEl.insertAdjacentElement('beforeend',`<img src=${pic.flag}\>`))
+             
+        
+    })
+        // data.forEach(pic=> listEl.insertAdjacentHTML('beforeend',`<img src="${pic.flag}" alt="">`))
 
 }   catch(err){
           console.log(`error ${err}`)
