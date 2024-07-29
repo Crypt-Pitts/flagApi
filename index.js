@@ -26,6 +26,7 @@ function darkmodeHandler() {
 // });
 
 const card = document.getElementById('card')
+let div = document.createElement('div')
 async function getFetch(){
     try{
         const url = `./data.json`
@@ -33,14 +34,19 @@ async function getFetch(){
         const data = await res.json()
         console.log(data)
         data.forEach(country => {
-            card.insertAdjacentHTML("beforeend",`<img src="${country.flag}" alt="">`)
-            card.insertAdjacentHTML("beforeend",`<h2>${country.name}</h2>`) 
-            card.insertAdjacentHTML("beforeend",`<p>Population: ${country.population}</p>`)
-            card.insertAdjacentHTML("beforeend",`<p>Region: ${country.region}</p>`)
-            card.insertAdjacentHTML("beforeend",`<p>Capitol: ${country.capital}</p>`)
+            
+            div.append(card.insertAdjacentHTML("beforebegin",`<img src="${country.flag}" alt="">`))
+            div.append(card.insertAdjacentHTML("beforebegin",`<h2>${country.name}</h2>`) )
+            div.append(card.insertAdjacentHTML("beforebegin",`<p>Population: ${country.population}</p>`))
+            div.append(card.insertAdjacentHTML("beforebegin",`<p>Region: ${country.region}</p>`))
+            div.append(card.insertAdjacentHTML("beforebegin",`<p>Capitol: ${country.capital}</p>`)     )
 
-             
-        
+            // card.insertAdjacentHTML("beforeend",`<img src="${country.flag}" alt="">`)
+            // card.insertAdjacentHTML("beforeend",`<h2>${country.name}</h2>`) 
+            // card.insertAdjacentHTML("beforeend",`<p>Population: ${country.population}</p>`)
+            // card.insertAdjacentHTML("beforeend",`<p>Region: ${country.region}</p>`)
+            // card.insertAdjacentHTML("beforeend",`<p>Capitol: ${country.capital}</p>`)
+            // card.append()
     })
         // data.forEach(pic=> listEl.insertAdjacentHTML('beforeend',`<img src="${pic.flag}" alt="">`))
 
