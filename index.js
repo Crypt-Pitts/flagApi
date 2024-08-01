@@ -19,7 +19,7 @@ async function getFetch(){
         const url = `./data.json`
         const res = await fetch(url);
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
         const postMethods = () => {
             data.map((e)=>{
                 const postEl = document.createElement('div');
