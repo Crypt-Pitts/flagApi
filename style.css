@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
    
     
 }
@@ -9,17 +10,27 @@ body{
     font-family: "Nunito Sans", sans-serif;
     color:hsl(0, 0%, 100%)
 }
-#card img{
-    width: 250px;
+
+
+.card-container{
+    width: 80%;
+    margin: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
-#card{
-    padding: 40px;
-    height: 400px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
+.card{
+    padding: 2rem;
+    box-shadow: 0 0 .4rem .4rem rgba(0, 0, 0, 0.2);
+    transition: .2s ease-in;
 }
 
+.card-container :hover{
+    opacity: .3;
+}
+.card img{
+    width: 200px;
+}
 
 #light{
     background:hsl(0, 0%, 98%);
