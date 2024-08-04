@@ -10,7 +10,7 @@ function darkmodeHandler() {
 
 
 
-const postContainer = document.querySelector('.card-container');
+const postContainer = document.querySelector('.cards-container');
 
 
 
@@ -25,7 +25,7 @@ async function getFetch(){
                 const postEl = document.createElement('div');
                 postEl.classList.add('card');
                 postEl.innerHTML = `
-                      <img src=${e.flag} alt="" class="card-flag">
+                      <img src=${e.flag} alt="The Flag of ${e.name}" class="card-flag">
                       <h2 class="card-name">${e.name}</h2>
                       <p class="card-pop">Population: ${e.population}</p>
                       <p class="card-region">Region: ${e.region}</p>
