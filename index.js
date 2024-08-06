@@ -24,17 +24,21 @@ async function getFetch(){
             data.map((e)=>{
                 const postEl = document.createElement('div');
                 postEl.classList.add('card');
+                postEl.id = e.name;
                 postEl.innerHTML = `
                       <img src=${e.flag} alt="The Flag of ${e.name}" class="card-flag">
                       <h2 class="card-name">${e.name}</h2>
-                      <p class="card-pop">Population: ${e.population}</p>
-                      <p class="card-region">Region: ${e.region}</p>
-                      <p class="card-cap">Capital: ${e.capital}</p>
+                     <span class="card-pop">Population: <p> ${e.population}</p></span>
+                      <span class="card-region">Region: <p>${e.region}</p></span>
+                      <span class="card-cap">Capital: <p>${e.capital}</p></span>
                 `
                 postContainer.appendChild(postEl)
+     
             })
         }
         postMethods();
+
+       
 
 
     
@@ -43,3 +47,4 @@ async function getFetch(){
       } ;
 }
 getFetch();
+
