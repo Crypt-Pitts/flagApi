@@ -7,12 +7,13 @@ const searchbar = document.getElementById("searchbar");
 function darkmodeHandler() {
   document.body.id === "light" ? document.getElementById("light").id = "dark" : document.getElementById("dark").id = "light";
   navbar.id == "navbar_light" ? document.getElementById("navbar_light").id = "navbar" : document.getElementById("navbar").id = "navbar_light";
+  searchbar.id == "searchbarLight" ? document.getElementById("searchbarLight").id = "searchbar" : document.getElementById("searchbar").id = "searchbarLight"
 }
 
 
 
 const postContainer = document.querySelector('.cards-container');
-
+const postList = document.getElementById('countries')
 
 
 async function getFetch(){
@@ -34,10 +35,21 @@ async function getFetch(){
                       <span class="card-cap">Capital: <p>${e.capital}</p></span>
                 `
                 postContainer.appendChild(postEl)
-     
-            })
+                    })
         }
         postMethods();
+
+        const listCountries = () => {
+            data.map((c)=>{
+                const listEL = document.createElement('option');
+                listEL.value = c.name;
+                listEL.innerHTML = c.name;
+
+            postList.appendChild(listEL)
+            })
+        }
+        listCountries();
+
 
        
 

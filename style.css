@@ -19,10 +19,12 @@ body{
     margin-left: 15%;
     margin-top: 2rem;
     padding: .6rem;
-    padding-left: 30px;
+    padding-left: 35px;
     padding-right: 5rem;
     background: url(./searchLight.svg) no-repeat, left;
-    background-size: 25px;
+    background-size: 20px;
+    background-color:  hsl(209, 23%, 22%) ;
+    background-position: 5px;
     color: white;
     border-radius: 10px;
   }
@@ -31,10 +33,12 @@ body{
     margin-left: 15%;
     margin-top: 2rem;
     padding: .6rem;
-    padding-left: 30px;
+    padding-left: 35px;
     padding-right: 5rem;
     background: url(./search.svg) no-repeat, left;
-    background-size: 25px;
+    background-size: 20px;
+    background-color:  white ;
+    background-position: 5px;
     color: black;
     border-radius: 10px;
   }
