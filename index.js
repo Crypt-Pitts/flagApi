@@ -1,11 +1,12 @@
 const element = document.getElementById("darkmode");
 
 element.addEventListener("click", darkmodeHandler);
-const x = document.getElementById("navbar");
+const navbar = document.getElementById("navbar");
+const searchbar = document.getElementById("searchbar");
 
 function darkmodeHandler() {
   document.body.id === "light" ? document.getElementById("light").id = "dark" : document.getElementById("dark").id = "light";
-  x.id == "navbar_light" ? document.getElementById("navbar_light").id = "navbar" : document.getElementById("navbar").id = "navbar_light";
+  navbar.id == "navbar_light" ? document.getElementById("navbar_light").id = "navbar" : document.getElementById("navbar").id = "navbar_light";
 }
 
 
