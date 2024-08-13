@@ -35,6 +35,14 @@ async function getFetch(){
                       <span class="card-cap">Capital: <p>${e.capital}</p></span>
                 `
                 postContainer.appendChild(postEl)
+
+                const cardClick = document.getElementById(e.name);
+
+                cardClick.addEventListener("click", c => {
+                    c.preventDefault();
+                    document.getElementById('modal').style.display = "block";
+                })
+
                     })
         }
         postMethods();
@@ -51,13 +59,27 @@ async function getFetch(){
         listCountries();
 
 
-       
-
-
+        
     
 }   catch(err){
           console.log(`error ${err}`)
       } ;
 }
 getFetch();
+
+
+
+const formSubmit = document.getElementById('formSub');
+const searchbarSubmit = document.getElementById('searchbar')
+// const cardsIds = (document.getElementsByClassName('.card')).forEach((card) => card.id)
+
+formSubmit.addEventListener("submit", (s) => {
+    s.preventDefault();
+    console.log(searchbarSubmit.value);
+})
+
+// console.log(cardsIds)
+
+
+// Modal for page
 
