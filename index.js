@@ -36,10 +36,13 @@ async function getFetch(){
                 `
                 postContainer.appendChild(postEl)
 
+                //Modal Setup
+
                 const cardClick = document.getElementById(e.name);
 
                 cardClick.addEventListener("click", c => {
                     c.preventDefault();
+                    console.log(e.name)
                     document.getElementById('modal').style.display = "block";
                 })
 
@@ -82,4 +85,17 @@ formSubmit.addEventListener("submit", (s) => {
 
 
 // Modal for page
+const modal = document.getElementById('modal');
+const modalContain = document.getElementById('modalContain');
+navClick = document.getElementById('navbar');
+
+navClick.addEventListener("click", c => {
+    c.preventDefault();
+    modal.style.display = 'none';
+})
+
+modalContain.addEventListener("click", c => {
+    c.preventDefault();
+    modal.style.display = 'none';
+})
 
