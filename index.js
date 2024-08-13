@@ -13,8 +13,8 @@ function darkmodeHandler() {
 
 
 const postContainer = document.querySelector('.cards-container');
-const postList = document.getElementById('countries')
-
+const postList = document.getElementById('countries');
+const modalEL = document.getElementById('modal');
 
 async function getFetch(){
     try{
@@ -43,7 +43,16 @@ async function getFetch(){
                 cardClick.addEventListener("click", c => {
                     c.preventDefault();
                     console.log(e.name)
-                    document.getElementById('modal').style.display = "block";
+                    modalEL.style.display = "block";
+                    modalEL.innerHTML = `
+                    <button  onclick="modalCloseBtn()" id="modal-close">Back</button>
+                    <img src=${e.flag} alt="The Flag of ${e.name}" class="modal-flag">
+                    <h2 class="modal-name">${e.name}</h2>
+                    <span class="modal-pop">Population: <p> ${e.population}</p></span>
+                    <span class="modal-region">Region: <p>${e.region}</p></span>
+                    <span class="modal-cap">Capital: <p>${e.capital}</p></span>
+                    `
+
                 })
 
                     })
@@ -86,16 +95,18 @@ formSubmit.addEventListener("submit", (s) => {
 
 // Modal for page
 const modal = document.getElementById('modal');
-const modalContain = document.getElementById('modalContain');
+
+
 navClick = document.getElementById('navbar');
+const modalCloseBtn = () => modal.style.display = 'none';
 
-navClick.addEventListener("click", c => {
-    c.preventDefault();
-    modal.style.display = 'none';
-})
+// navClick.addEventListener("click", c => {
+//     c.preventDefault();
+//     modal.style.display = 'none';
+// })
 
-modalContain.addEventListener("click", c => {
-    c.preventDefault();
-    modal.style.display = 'none';
-})
+// modalCloseBtn.addEventListener("click", c => {
+//     c.preventDefault();
+//     modal.style.display = 'none';
+// })
 
