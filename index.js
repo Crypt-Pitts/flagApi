@@ -18,18 +18,18 @@ const modalEL = document.getElementById('modal');
 
 async function getFetch(){
     try{
-        const url = `./data.json`
+        const url = `https://restcountries.com/v3.1/all`
         const res = await fetch(url);
         const data = await res.json()
-        // console.log(data)
+        console.log(data)
         const postMethods = () => {
             data.map((e)=>{
                 const postEl = document.createElement('div');
                 postEl.classList.add('card');
-                postEl.id = e.name;
+                postEl.id = e.name.common;
                 postEl.innerHTML = `
-                      <img src=${e.flag} alt="The Flag of ${e.name}" class="card-flag">
-                      <h2 class="card-name">${e.name}</h2>
+                    <img src=${e.flags.svg} alt="The Flag of ${e.name.common}" class="modal-flag"> 
+                      <h2 class="card-name">${e.name.common}</h2>
                      <span class="card-pop">Population: <p> ${e.population}</p></span>
                       <span class="card-region">Region: <p>${e.region}</p></span>
                       <span class="card-cap">Capital: <p>${e.capital}</p></span>
@@ -38,19 +38,22 @@ async function getFetch(){
 
                 //Modal Setup
 
-                const cardClick = document.getElementById(e.name);
+                const cardClick = document.getElementById(e.name.common);
 
                 cardClick.addEventListener("click", c => {
                     c.preventDefault();
-                    console.log(e.name)
-                    modalEL.style.display = "block";
+                    console.log(e.name.common)
+                    modalEL.style.display = "flex";
                     modalEL.innerHTML = `
-                    <button  onclick="modalCloseBtn()" id="modal-close">Back</button>
-                    <img src=${e.flag} alt="The Flag of ${e.name}" class="modal-flag">
-                    <h2 class="modal-name">${e.name}</h2>
+                    <button  onclick="modalCloseBtn()" class="modal-close">Back</button>
+                    <img src=${e.flags.svg} alt="The Flag of ${e.name.common}" class="modal-flag"> 
+
+                    <div id="info">
+                    <h2 class="modal-name">${e.name.official}</h2>
                     <span class="modal-pop">Population: <p> ${e.population}</p></span>
                     <span class="modal-region">Region: <p>${e.region}</p></span>
                     <span class="modal-cap">Capital: <p>${e.capital}</p></span>
+                    </div>
                     `
 
                 })
